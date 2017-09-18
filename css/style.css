@@ -1,0 +1,16 @@
+  #player-one {
+    position: absolute;
+    padding: 10px;
+    background-color: black;
+  }
+
+  #player-two {
+    position: absolute;
+    left: 100px;
+    padding: 10px;
+    background-color: red;
+  }
+
+ #field {
+  margin-: 0 auto;
+ }

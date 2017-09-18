@@ -15,32 +15,30 @@ function Oklahoma() {
     this.defense = {
       name: 'D',
       row: 6,
-      col: 1
+      col: 1,
+      move: null
     };
     // Joueur attaquant
     this.attack = {
       name: 'A',
       row: 9,
-      col: 1
+      col: 1,
+      move: null
     };
 }
 
-// Affichage du terrain
-Oklahoma.prototype.display = function () {
-  this.field.forEach(function(row) {
-    console.log(row);
-  });
-};
+
+
 
 // Fonction faire avancer un joueur
 Oklahoma.prototype.moveForward = function (team, increment) {
+
   if (this.field[this[team].row + increment][this[team].col] === null) {
     this.field[this[team].row + increment][this[team].col] = this[team].name;
     this.field[this[team].row][this[team].col] = null;
   }
-  this.display();
 
-   if (this.field[this.attack.row-1][this.attack.col] === 'TD') {
+  if (this.field[this.attack.row-1][this.attack.col] === 'TD') {
     console.log("TOUCHDOOOOOOOOOOOOWN");
   }
 };
@@ -63,8 +61,6 @@ Oklahoma.prototype.moveLeft = function (team, increment) {
     this.field[this[team].row][this[team].col + increment] = this[team].name;
     this.field[this[team].row][this[team].col] = null;
   }
-
-  this.display();
 };
 
 // Fonction faire deplacer le joueur attaquant
@@ -85,7 +81,6 @@ Oklahoma.prototype.moveRight = function (team, increment) {
     this.field[this[team].row][this[team].col + increment] = this[team].name;
     this.field[this[team].row][this[team].col] = null;
   }
-  this.display();
 };
 
 // Fonction faire deplacer le joueur attauqant vers la droite
@@ -97,6 +92,7 @@ Oklahoma.prototype.moveRightAttack = function () {
 // Fonction faire depalcer le joueur defenseur vers la droite
 Oklahoma.prototype.moveRightDefense = function () {
   this.moveRight("defense", 1);
+  this.defense.col++;
 };
 
 // Fonction faire reculer un joueur
@@ -105,7 +101,6 @@ Oklahoma.prototype.moveBackward = function (team, increment) {
       this.field[this[team].row + increment][this[team].col] = this[team].name;
       this.field[this[team].row][this[team].col] = null;
   }
-  this.display();
 };
 
 // Fonction faire reculer le joueur attaquant
@@ -118,4 +113,29 @@ Oklahoma.prototype.moveBackwardAttack = function () {
 Oklahoma.prototype.moveBackwardDefense = function () {
   this.moveBackward("defense", -1);
   this.defense.col--;
+};
+
+Oklahoma.prototype.popDefense = function () {
+    var pop = Math.floor(Math.random() * this.field.length);
+    var pop1 = Math.floor(Math.random() * this.field.length);
+      this.field[pop][pop1] = this.defense.name;
+};
+
+Oklahoma.prototype.move = function () {
+  switch (this.attack.move) {
+    case "up": this.moveForwardAttack(); break;
+    case "down": this.moveBackwardAttack(); break;
+    case "left": this.moveLeftAttack(); break;
+    case "right": this.moveRightAttack(); break;
+  }
+  this.attack.move = null;
+};
+
+
+Oklahoma.prototype.registerMove = function(move) {
+  this.attack.move = move;
+};
+
+Oklahoma.prototype.tick = function (timeLapsted) {
+  this.move();
 };
