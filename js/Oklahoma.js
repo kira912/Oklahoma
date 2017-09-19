@@ -43,17 +43,7 @@ Oklahoma.prototype.move = function () {
 Oklahoma.prototype.registerMove = function(move) {
   this.attack.move = move;
 };
-//
-// Oklahoma.prototype.moveDefense = function () {
-//   switch (this.defense.move) {
-//     case "up": this.defense.y -= 2.5; break;
-//     case "down": this.defense.y += 2.5; break;
-//     case "left": this.defense.x -= 2.5; break;
-//     case "right": this.defense.x += 2.5; break;
-//   }
-//   this.defense.move = null;
-// };
-//
+
 Oklahoma.prototype.registerMoveDefense = function (move) {
   this.defense.move = move;
 };
