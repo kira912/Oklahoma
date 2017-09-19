@@ -21,11 +21,6 @@ function Oklahoma() {
     };
 }
 
-
-Oklahoma.prototype.popDefense = function () {
-
-};
-
 Oklahoma.prototype.move = function () {
   switch (this.attack.move) {
     case "up": this.attack.y -= 2.5; break;
@@ -34,23 +29,31 @@ Oklahoma.prototype.move = function () {
     case "right": this.attack.x += 2.5; break;
   }
   this.attack.move = null;
+
+  switch (this.defense.move) {
+    case "up": this.defense.y -= 2.5; break;
+    case "down": this.defense.y += 2.5; break;
+    case "left": this.defense.x -= 2.5; break;
+    case "right": this.defense.x += 2.5; break;
+  }
+  this.defense.move = null;
 };
 
 
 Oklahoma.prototype.registerMove = function(move) {
   this.attack.move = move;
 };
-
-Oklahoma.prototype.moveDefense = function () {
-  switch (this.defense.move) {
-    case "up": this.moveForwardDefense(); break;
-    case "down": this.moveBackwardDefense(); break;
-    case "left": this.moveLeftDefense(); break;
-    case "right": this.moveRightDefense(); break;
-  }
-  this.defense.move = null;
-};
-
+//
+// Oklahoma.prototype.moveDefense = function () {
+//   switch (this.defense.move) {
+//     case "up": this.defense.y -= 2.5; break;
+//     case "down": this.defense.y += 2.5; break;
+//     case "left": this.defense.x -= 2.5; break;
+//     case "right": this.defense.x += 2.5; break;
+//   }
+//   this.defense.move = null;
+// };
+//
 Oklahoma.prototype.registerMoveDefense = function (move) {
   this.defense.move = move;
 };

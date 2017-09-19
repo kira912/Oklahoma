@@ -36,7 +36,9 @@ function playerPx(player) {
 
 
 function moveListeners (event) {
-  var keys = [37, 38, 39, 40];
+  var attackKeys = [37, 38, 39, 40];
+  var defenseKeys = [68, 81, 83, 90];
+  var keys = attackKeys.concat(defenseKeys);
   if (keys.indexOf(event.keyCode) < 0) {
     return;
   }
@@ -49,6 +51,14 @@ function moveListeners (event) {
     case 39: game.registerMove("right");
     break;
     case 40: game.registerMove("down");
+     break;
+     case 68: game.registerMoveDefense("right");
+     break;
+     case 81: game.registerMoveDefense("left");
+     break;
+     case 83: game.registerMoveDefense("down");
+     break;
+     case 90: game.registerMoveDefense("up");
      break;
   }
 }
