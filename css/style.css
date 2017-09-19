@@ -1,16 +1,27 @@
+.player {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  bottom: -10px;
+  left: -10px;
+}
+
   #player-one {
-    position: absolute;
-    padding: 10px;
+    /* padding: 10px; */
     background-color: black;
   }
 
   #player-two {
-    position: absolute;
-    left: 100px;
-    padding: 10px;
+    /* padding: 10px; */
     background-color: red;
   }
 
  #field {
-  margin-: 0 auto;
+  margin: 0 auto;
+  position: relative;
+  background-image: url("img/fond.jpg");
+  background-size: cover;
+  background-position: center center;
+  width: 97.6px;
+  height: 220px;
  }

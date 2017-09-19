@@ -1,5 +1,15 @@
 var game;
 $(document).ready(function() {
+  var divP1 = $("#player-one");
+  var divP2 = $("#player-two");
+
+  function display () {
+    var attackPx = playerPx(game.attack);
+    divP1.css("transform", "translate(" + attackPx.x + "," + attackPx.y + ")");
+    var defensePx = playerPx(game.defense);
+    divP2.css("transform", "translate(" + defensePx.x + "," + defensePx.y + ")");
+  }
+
   $(document).keydown(moveListeners);
   game = new Oklahoma();
   display();
@@ -17,12 +27,13 @@ $(document).ready(function() {
   requestAnimationFrame(gameLoop);
 });
 
-// Affichage du terrain
-function display () {
-  game.field.forEach(function(row) {
-    console.log(row);
-  });
+function playerPx(player) {
+  return {
+    x: String(player.x * 2) + 'px',
+    y: String(player.y * 2) + 'px'
+  };
 }
+
 
 function moveListeners (event) {
   var keys = [37, 38, 39, 40];
@@ -32,22 +43,12 @@ function moveListeners (event) {
 
   switch (event.keyCode) {
     case 37: game.registerMove("left");
-      var poneLeft = parseInt($("#player-one").css("right"));
-      $("#player-one").css("right", poneLeft + 10);
     break;
-
     case 38: game.registerMove("up");
-      var poneUp = parseInt($("#player-one").css("bottom"));
-      $("#player-one").css("bottom", poneUp + 10);
     break;
-
     case 39: game.registerMove("right");
-      var poneRight = parseInt($("#player-one").css("left"));
-      $("#player-one").css("left", poneRight + 10);
     break;
     case 40: game.registerMove("down");
-      var poneDown = parseInt($("#player-one").css("top"));
-      $("#player-one").css("top", poneDown + 10);
      break;
   }
 }
