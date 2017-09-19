@@ -25,7 +25,14 @@ $(document).ready(function() {
     requestAnimationFrame(gameLoop);
   }
   requestAnimationFrame(gameLoop);
+
+  var finishHit = $("#defense-win");
+  finishHit.hide();
+  if (game.testCollision()) {
+    finishHit.toggle();
+  }
 });
+
 
 function playerPx(player) {
   return {
