@@ -1,3 +1,7 @@
+body {
+  background-color: black;
+}
+
 .player {
   position: absolute;
   width: 20px;
@@ -22,24 +26,26 @@
 }
 
   #player-one {
-    background-color: black;
-  }
-
-  #player-two {
+    /*background-image: url("img/player2.svg");*/
     background-color: red;
   }
 
+  #player-two {
+    background-color: black;
+  }
+
  #field {
-  margin: 0 auto;
+  border-top: 10px solid red;
+  margin: 45px 430px;
   position: relative;
   background-image: url("img/fond.jpg");
   background-size: cover;
   background-position: center center;
-  width: 244px;
+  width: 350px;
   height: 550px;
  }
 
- #defense-win {
+ #win {
    color: white;
    font-size: 42px;
    font-family: Arial, Helvetica, sans-serif;
@@ -49,4 +55,30 @@
    width: 100%;
    text-align: center;
    background-color: rgba(0, 0, 0, 0.3);
+ }
+
+ #gif {
+   width: 80%;
+   position: absolute;
+   bottom: 10px;
+   left: 30px;
+ }
+
+ .left-side {
+    background-image: url("img/gauche2.jpg");
+    transform: rotate(270deg);
+    position: absolute;
+    bottom: 100px;
+    left: -160px;
+    width: 50%;
+    height: 70%;
+ }
+ .right-side {
+    background-image: url("img/droit2.jpg");
+    transform: rotate(90deg);
+    position: absolute;
+    right: -95px;
+    bottom: 100px;
+    width: 50%;
+    height: 70%;
  }

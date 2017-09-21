@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <title>oklahoma game</title>
@@ -10,6 +10,7 @@
         crossorigin="anonymous"></script>
   </head>
   <body>
+    <div class="left-side"></div>
     <div id="field">
         <div class="player" id="player-one">
           <div class="hitbox">
@@ -19,14 +20,27 @@
           <div class="hitbox">
           </div>
         </div>
-        <section id="defense-win">
-          <h2>Big Hit Defense !</h2>
+        <section id="win">
+          <h2 id="message">Big Hit Defense !</h2>
           <p>
-            <span id="message"></span> Defense win!
+            <span id="team-win"></span> win!
           </p>
           <button id="restart">Restart</button>
+          <img id="gif" src="css/gif/gifTD.gif" alt="TD"></img>
+          <audio autoplay loop>
+            <source id="sound" src="css/sounds/match.mp3" type="audio/mp3"/>
+          </audio>
+          <audio id="sound-match" autoplay loop>
+            <source src="" type="audio/mp3"/>
+          </audio>
+          <audio autoplay loop>
+            <source id="sound-TD" src="css/sounds/TD.mp3" type="audio/mp3"/>
+          </audio>
+
         </section>
+
     </div>
+    <div class="right-side"></div>
 
 
     <script src="js/Oklahoma.js">  </script>
