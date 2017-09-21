@@ -10,37 +10,38 @@
         crossorigin="anonymous"></script>
   </head>
   <body>
-    <div class="left-side"></div>
-    <div id="field">
-        <div class="player" id="player-one">
-          <div class="hitbox">
+    <div class="container">
+      <div id="field">
+        <h1>TOUCHDOWN</h1>
+          <div class="player" id="player-one">
+            <div class="hitbox">
+            </div>
           </div>
-        </div>
-        <div class="player" id="player-two">
-          <div class="hitbox">
+          <div class="player" id="player-two">
+            <div class="hitbox">
+            </div>
           </div>
-        </div>
-        <section id="win">
-          <h2 id="message">Big Hit Defense !</h2>
-          <p>
-            <span id="team-win"></span> win!
-          </p>
-          <button id="restart">Restart</button>
-          <img id="gif" src="css/gif/gifTD.gif" alt="TD"></img>
-          <audio autoplay loop>
-            <source id="sound" src="css/sounds/match.mp3" type="audio/mp3"/>
-          </audio>
-          <audio id="sound-match" autoplay loop>
-            <source src="" type="audio/mp3"/>
-          </audio>
-          <audio autoplay loop>
-            <source id="sound-TD" src="css/sounds/TD.mp3" type="audio/mp3"/>
-          </audio>
+          <section id="win">
+            <h2 id="message">Big Hit Defense !</h2>
+            <p>
+              <span id="team-win"></span> win!
+            </p>
+            <button id="restart">Restart</button>
+            <img id="gif" src="css/gif/gifTD.gif" alt="TD"></img>
+            <audio autoplay loop id="ambienceSound">
+              <source src="css/sounds/match.mp3" type="audio/mp3"/>
+            </audio>
+            <!-- <audio id="sound-match" autoplay loop>
+              <source src="" type="audio/mp3"/>
+            </audio> -->
+            <audio id="touchdownSound">
+              <source src="css/sounds/TD.mp3" type="audio/mp3"/>
+            </audio>
 
-        </section>
+          </section>
 
     </div>
-    <div class="right-side"></div>
+  </div>
 
 
     <script src="js/Oklahoma.js">  </script>

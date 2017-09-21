@@ -31,7 +31,8 @@ $(document).ready(function() {
       $("#message").text("touchdown");
       $("#team-win").text("Attack");
       $("#gif").attr("src","css/gif/gifTD.gif");
-      $("#sound-match").stop();
+      $("#ambienceSound").get(0).pause();
+      $("#touchdownSound").get(0).play();
       ongoing = false;
     }
   }
@@ -41,6 +42,7 @@ $(document).ready(function() {
     finish.hide();
     ongoing = true;
     gameLoop();
+    $("#ambienceSound").get(0).play();
   });
 
   $(document).keydown(moveListeners);
