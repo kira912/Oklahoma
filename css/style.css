@@ -6,14 +6,11 @@ body {
 }
 
 h1 {
-  /*position: relative;
-  bottom: 65px;
-  left: 40px;*/
   text-shadow: 10px 10px 10px black;
 }
 
 #welcome {
-  color: blue;
+  color: #191970;
   font-weight: bold;
   text-shadow: 10px 10px 10px blue;
 }
@@ -41,7 +38,6 @@ p {
   top: 0;
   bottom: 0;
   margin: -10px;
-  background-color: blue;
   opacity: 0.3;
 }
 
@@ -53,6 +49,7 @@ p {
   #player-two {
     background-image: url("img/player2.png");
     width: 8%;
+    transform += rotate(90deg);
   }
 
   .TDLine {
@@ -76,6 +73,7 @@ p {
    color: white;
    font-size: 42px;
    font-family: Arial, Helvetica, sans-serif;
+   padding: 100px 0;
    position: absolute;
    top: 32px;
    bottom: 0;
@@ -85,6 +83,7 @@ p {
  }
 
  #info {
+   padding: 50px 0;
    color: black;
    font-size: 25px;
    font-family: Arial, Helvetica, sans-serif;

@@ -6,6 +6,7 @@ $(document).ready(function() {
   var finish = $("#win");
   var start = $("#info");
 
+// Event click lancement du jeu
   $("#start").click(function() {
     game = new Oklahoma();
     ongoing = true;
@@ -14,13 +15,14 @@ $(document).ready(function() {
     $("#ambienceSound").get(0).play();
   });
 
+// Fonction display pour faire avancer les joueurs
   function display () {
     var attackPx = playerPx(game.attack);
     divP1.css("transform", "translate(" + attackPx.x + "," + attackPx.y + ")");
     var defensePx = playerPx(game.defense);
     divP2.css("transform", "translate(" + defensePx.x + "," + defensePx.y + ")");
 
-
+// Si le defenseur rentre dans l'attaquant, message de victoire et changement de musique
     if (game.testCollision()) {
       finish.show();
       $("#message").text("Big hit defense !");
@@ -31,6 +33,7 @@ $(document).ready(function() {
       ongoing = false;
     }
 
+// Si le joueur attaquant sort du terrain, message de victoire et changement de musique
     if (game.testSortie()) {
       finish.show();
       $("#message").text("Out of the field");
@@ -41,6 +44,7 @@ $(document).ready(function() {
       ongoing = false;
     }
 
+// Si le joueur attaquant passe la ligne de TD, message de victoire et changement de musique
     else if (game.testTouchdown()) {
       finish.show();
       $("#message").text("touchdown");
@@ -52,6 +56,7 @@ $(document).ready(function() {
     }
   }
 
+// Click event pour relancer une partie
   $("#restart").click(function() {
     game = new Oklahoma();
     finish.hide();
@@ -67,7 +72,9 @@ $(document).ready(function() {
   var previousTime;
   var currentTime = Date.now();
   var ongoing = false;
+  finish.hide();
 
+//  Fonction "loop" pour faire avancer le jeu en temp réel
   function gameLoop() {
     if (!ongoing)
     return;
@@ -79,10 +86,9 @@ $(document).ready(function() {
   }
   requestAnimationFrame(gameLoop);
 
-  finish.hide();
 });
 
-
+// Fonction deplacement des joueurs convertis en px
 function playerPx(player) {
   return {
     x: String(player.x * 2) + 'px',
@@ -90,6 +96,7 @@ function playerPx(player) {
   };
 }
 
+//Event keydown mouvement joueurs
 function moveListeners (event) {
   var attackKeys = [37, 38, 39, 40];
   var defenseKeys = [68, 81, 83, 90];
@@ -117,6 +124,8 @@ function moveListeners (event) {
      break;
   }
 }
+
+// Event keyup mouvement joueurs
 function unmoveListeners (event) {
   var attackKeys = [37, 38, 39, 40];
   var defenseKeys = [68, 81, 83, 90];

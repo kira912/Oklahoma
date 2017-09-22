@@ -53,18 +53,21 @@ Oklahoma.prototype.registerMoveDefense = function (move) {
   this.defense.move = move;
 };
 
+// Deenregistre le mouvement de l'attaquant
 Oklahoma.prototype.unregisterMoveAttack = function (move) {
   if (this.attack.move === move) {
     this.attack.move = null;
   }
 };
 
+// Deenregistre le mouvement du defenseur
 Oklahoma.prototype.unregisterMoveDefense = function (move) {
   if (this.defense.move === move) {
     this.defense.move = null;
   }
 };
 
+// Test si le defenseur rentre en collision avec l'attaquant
 Oklahoma.prototype.testCollision = function () {
     var detectionX = (this.attack.x + this.attack.radius) - (this.defense.x + this.defense.radius);
     var detectionY = (this.attack.y + this.attack.radius) - (this.defense.y + this.defense.radius);
@@ -76,13 +79,18 @@ Oklahoma.prototype.testCollision = function () {
     return false;
 };
 
+// Test si l'attaquant sors du terrain
 Oklahoma.prototype.testSortie = function () {
   if (this.attack.x > 180 || this.attack.x < 12) {
+    return true;
+  }
+  if (this.attack.y > -20) {
     return true;
   }
   return false;
 };
 
+// Test si l'attaquant passe la ligne de touchdown
 Oklahoma.prototype.testTouchdown = function () {
   if (this.attack.y < - (299)) {
     return true;
@@ -90,6 +98,7 @@ Oklahoma.prototype.testTouchdown = function () {
   return false;
 };
 
+// Fonction "tick" pour la gameloop du jeu avec les test de fin de jeusssk
 Oklahoma.prototype.tick = function (timeLapsted) {
   this.move();
   this.testCollision();
