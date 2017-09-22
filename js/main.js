@@ -1,4 +1,12 @@
 var game;
+
+function directionToDeg(direction) {
+  if(direction === "up") {  return 0;}
+  if(direction === "right") {return 90;}
+  if(direction === "down") {return 180;}
+  if(direction === "left") {return 270;}
+}
+
 $(document).ready(function() {
   $("#ambienceSound").get(0).pause();
   var divP1 = $("#player-one");
@@ -17,11 +25,15 @@ $(document).ready(function() {
 
 // Fonction display pour faire avancer les joueurs
   function display () {
-    var attackPx = playerPx(game.attack);
-    divP1.css("transform", "translate(" + attackPx.x + "," + attackPx.y + ")");
-    var defensePx = playerPx(game.defense);
-    divP2.css("transform", "translate(" + defensePx.x + "," + defensePx.y + ")");
-
+    function displayPlayer(role, div, defaultDirection) {
+      var px = playerPx(game[role]);
+      var translation = "translate(" + px.x + "," + px.y + ")";
+      var angle = directionToDeg(game[role].move === null ? defaultDirection : game[role].move);
+      var rotation = "rotate(" + angle + "deg)";
+      div.css("transform", translation + " " + rotation);
+    }
+    displayPlayer("attack", divP1, "up");
+    displayPlayer("defense", divP2, "down");
 // Si le defenseur rentre dans l'attaquant, message de victoire et changement de musique
     if (game.testCollision()) {
       finish.show();

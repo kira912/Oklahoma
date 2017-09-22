@@ -81,10 +81,10 @@ Oklahoma.prototype.testCollision = function () {
 
 // Test si l'attaquant sors du terrain
 Oklahoma.prototype.testSortie = function () {
-  if (this.attack.x > 180 || this.attack.x < 12) {
+  if (this.attack.x > 185 || this.attack.x < 12) {
     return true;
   }
-  if (this.attack.y > -20) {
+  if (this.attack.y > -9) {
     return true;
   }
   return false;
@@ -98,7 +98,7 @@ Oklahoma.prototype.testTouchdown = function () {
   return false;
 };
 
-// Fonction "tick" pour la gameloop du jeu avec les test de fin de jeusssk
+// Fonction "tick" pour la gameloop du jeu avec les test de fin de jeu
 Oklahoma.prototype.tick = function (timeLapsted) {
   this.move();
   this.testCollision();
