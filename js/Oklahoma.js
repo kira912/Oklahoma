@@ -10,15 +10,15 @@ function Oklahoma() {
       name: 'D',
       x: maxX / 2,
       y: -100,
-      radius: 10,
+      radius: 12,
       move: null
     };
     // Joueur attaquant
     this.attack = {
       name: 'A',
       x: maxX / 2,
-      y: 0,
-      radius: 10,
+      y: -20,
+      radius: 12,
       move: null
     };
 }
@@ -77,14 +77,14 @@ Oklahoma.prototype.testCollision = function () {
 };
 
 Oklahoma.prototype.testSortie = function () {
-  if (this.attack.x > 160 || this.attack.x < 15) {
+  if (this.attack.x > 180 || this.attack.x < 12) {
     return true;
   }
   return false;
 };
 
 Oklahoma.prototype.testTouchdown = function () {
-  if (this.attack.y < - (270)) {
+  if (this.attack.y < - (299)) {
     return true;
   }
   return false;

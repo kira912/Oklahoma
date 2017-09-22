@@ -1,8 +1,18 @@
 var game;
 $(document).ready(function() {
+  $("#ambienceSound").get(0).pause();
   var divP1 = $("#player-one");
   var divP2 = $("#player-two");
-    var finish = $("#win");
+  var finish = $("#win");
+  var start = $("#info");
+
+  $("#start").click(function() {
+    game = new Oklahoma();
+    ongoing = true;
+    gameLoop();
+    start.hide();
+    $("#ambienceSound").get(0).play();
+  });
 
   function display () {
     var attackPx = playerPx(game.attack);
@@ -10,11 +20,14 @@ $(document).ready(function() {
     var defensePx = playerPx(game.defense);
     divP2.css("transform", "translate(" + defensePx.x + "," + defensePx.y + ")");
 
+
     if (game.testCollision()) {
       finish.show();
       $("#message").text("Big hit defense !");
       $("#team-win").text("Defense");
       $("#gif").attr("src","css/gif/gifHit.gif");
+      $("#ambienceSound").get(0).pause();
+      $("#defenseSound").get(0).play();
       ongoing = false;
     }
 
@@ -23,6 +36,8 @@ $(document).ready(function() {
       $("#message").text("Out of the field");
       $("#team-win").text("Defense");
       $("#gif").attr("src","css/gif/gifOut.gif");
+      $("#ambienceSound").get(0).pause();
+      $("#defenseSound").get(0).play();
       ongoing = false;
     }
 
@@ -51,7 +66,7 @@ $(document).ready(function() {
   display();
   var previousTime;
   var currentTime = Date.now();
-  var ongoing = true;
+  var ongoing = false;
 
   function gameLoop() {
     if (!ongoing)
@@ -74,11 +89,6 @@ function playerPx(player) {
     y: String(player.y * 2) + 'px'
   };
 }
-
-function logkey(event){
-  console.log(event.type + ' ' + event.keyCode);
-}
-
 
 function moveListeners (event) {
   var attackKeys = [37, 38, 39, 40];

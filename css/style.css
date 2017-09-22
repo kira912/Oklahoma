@@ -6,9 +6,19 @@ body {
 }
 
 h1 {
-  position: relative;
-  bottom: 75px;
-  left: 60px;
+  /*position: relative;
+  bottom: 65px;
+  left: 40px;*/
+  text-shadow: 10px 10px 10px black;
+}
+
+#welcome {
+  color: blue;
+  font-weight: bold;
+  text-shadow: 10px 10px 10px blue;
+}
+
+p {
   text-shadow: 10px 10px 10px black;
 }
 
@@ -24,8 +34,8 @@ h1 {
 .hitbox {
   position: absolute;
   border-radius: 99999px;
-  width: 40px;
-  height: 40px;
+  width: 49px;
+  height: 49px;
   left: 0;
   right: 0;
   top: 0;
@@ -45,14 +55,21 @@ h1 {
     width: 8%;
   }
 
+  .TDLine {
+    position: absolute;
+    z-index: 2;
+    background-color: #DD0011;
+    padding: 0 67px;
+  }
+
  #field {
-  border-top: 75px solid #1DAF16;
   position: relative;
-  background-image: url("img/fond.jpg");
+  margin-top: 19px;
+  background-image: url("img/fond2.jpg");
   background-size: cover;
   background-position: center center;
-  width: 350px;
-  height: 550px;
+  width: 400px;
+  height: 635px;
  }
 
  #win {
@@ -60,16 +77,28 @@ h1 {
    font-size: 42px;
    font-family: Arial, Helvetica, sans-serif;
    position: absolute;
-   top: 0;
+   top: 32px;
    bottom: 0;
    width: 100%;
    text-align: center;
    background-color: rgba(0, 0, 0, 0.3);
  }
 
+ #info {
+   color: black;
+   font-size: 25px;
+   font-family: Arial, Helvetica, sans-serif;
+   position: absolute;
+   top: 32px;
+   bottom: 0;
+   width: 100%;
+   text-align: center;
+   background-color: rgba(255, 255, 255, 0.3);
+ }
+
  #gif {
    width: 80%;
    position: absolute;
    bottom: 10px;
-   left: 30px;
+   left: 35px;
  }

@@ -8,11 +8,17 @@
         src="https://code.jquery.com/jquery-3.2.1.js"
         integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
         crossorigin="anonymous"></script>
+        <link rel="stylesheet"
+         href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+          crossorigin="anonymous">
+
   </head>
   <body>
-    <div class="container">
+    <div class="TDLine">
+      <h1>TOUCHDOWN</h1>
+    </div>
       <div id="field">
-        <h1>TOUCHDOWN</h1>
           <div class="player" id="player-one">
             <div class="hitbox">
             </div>
@@ -21,19 +27,30 @@
             <div class="hitbox">
             </div>
           </div>
+
+          <section id="info">
+            <h2 id="welcome">Welcome to the Oklahoma game !</h2>
+            <p>the attack player play with the arrows keys.
+              the defense player play with "z q s d" keys.
+            </p>
+            <p>The rules are very easy ! the attack just need to path the touchdown line
+              and the defense must stop the attack !</p>
+            <button id="start" class="btn btn-success">Start !</button>
+          </section>
+
           <section id="win">
             <h2 id="message">Big Hit Defense !</h2>
             <p>
               <span id="team-win"></span> win!
             </p>
-            <button id="restart">Restart</button>
+            <button id="restart" class="btn btn-success">Restart</button>
             <img id="gif" src="css/gif/gifTD.gif" alt="TD"></img>
             <audio autoplay loop id="ambienceSound">
               <source src="css/sounds/match.mp3" type="audio/mp3"/>
             </audio>
-            <!-- <audio id="sound-match" autoplay loop>
-              <source src="" type="audio/mp3"/>
-            </audio> -->
+            <audio id="defenseSound">
+              <source src="css/sounds/hit.mp3" type="audio/mp3"/>
+            </audio>
             <audio id="touchdownSound">
               <source src="css/sounds/TD.mp3" type="audio/mp3"/>
             </audio>
@@ -41,7 +58,6 @@
           </section>
 
     </div>
-  </div>
 
 
     <script src="js/Oklahoma.js">  </script>
